@@ -11,6 +11,7 @@ const iconSvgPath = path.join(repoRoot, 'assets', 'icon.svg');
 const iconPngPath = path.join(repoRoot, 'build', 'icon.png');
 const iconIcoPath = path.join(repoRoot, 'build', 'icon.ico');
 const iconIcnsPath = path.join(repoRoot, 'build', 'icon.icns');
+const buildDir = path.dirname(iconPngPath);
 
 const svg = await fs.readFile(iconSvgPath);
 
@@ -19,6 +20,7 @@ const png1024 = await sharp(svg, { density: 288 })
   .png({ compressionLevel: 9 })
   .toBuffer();
 
+await fs.mkdir(buildDir, { recursive: true });
 await fs.writeFile(iconPngPath, png1024);
 
 const ico = png2icons.createICO(png1024, png2icons.BILINEAR, 0, true);
