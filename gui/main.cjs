@@ -1,10 +1,12 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('node:path');
 const { spawn } = require('node:child_process');
+const fs = require('node:fs');
 
 function getIconPngPath() {
   if (app.isPackaged) return path.join(process.resourcesPath, 'icon.png');
-  return path.join(app.getAppPath(), 'build', 'icon.png');
+  const devIcon = path.join(app.getAppPath(), 'build', 'icon.png');
+  return fs.existsSync(devIcon) ? devIcon : null;
 }
 
 function getBundledNodePath() {
@@ -74,6 +76,7 @@ async function runFantasticon(opts) {
 }
 
 function createWindow() {
+  const winIcon = process.platform === 'win32' ? getIconPngPath() : null;
   const win = new BrowserWindow({
     width: 980,
     height: 720,
@@ -82,7 +85,7 @@ function createWindow() {
     maximizable: true,
     fullscreenable: true,
     autoHideMenuBar: true,
-    ...(process.platform === 'win32' ? { icon: getIconPngPath() } : {}),
+    ...(winIcon ? { icon: winIcon } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -106,7 +109,8 @@ app.whenReady().then(() => {
   }
   if (process.platform === 'darwin' && app.dock) {
     try {
-      app.dock.setIcon(getIconPngPath());
+      const iconPath = getIconPngPath();
+      if (iconPath) app.dock.setIcon(iconPath);
     } catch {
       // ignore
     }
