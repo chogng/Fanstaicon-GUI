@@ -1,3 +1,32 @@
+<h2 align="center">Fanstanicon</h2>
+
+<blockquote align="center">
+  A simple GUI for generating icon fonts and assets from SVG files (based on Fantasticon).
+</blockquote>
+
+## Download (Portable)
+
+Download builds from the GitHub Releases page of this repository.
+
+- macOS portable: a `.zip` containing `Fanstanicon.app` (no installer required)
+- Windows portable: a single `.exe` (no installer required)
+
+## How To Use (GUI)
+
+1. Select `Input Directory` (folder containing `.svg` files).
+2. Select `Output Directory` (where generated files will be written).
+3. (Optional) Select `Config File` (`.fantasticonrc.*`) to reuse advanced options (templates, `formatOptions`, `getIconId`, etc).
+4. Choose `Font Types` / `Asset Types`.
+5. Click `Generate` and check the `Output` panel for results/errors.
+
+## License & Attribution
+
+This repository contains modifications and additional code based on `tancredi/fantasticon` (MIT License): https://github.com/tancredi/fantasticon
+
+---
+
+## Upstream README (Fantasticon CLI)
+
 ![Logo](https://fantasticon.s3.eu-west-2.amazonaws.com/readme/logo.png)
 
 <h2 align="center">Fantasticon</h2>
@@ -7,11 +36,6 @@
 <blockquote align="center">
   Easy-to-use, pre-configured CLI tool to generate web-font icon kits from SVG files
 </blockquote>
-
-<p align="center">
-  <img src="https://github.com/tancredi/fantasticon/workflows/Test/badge.svg" alt="Test status">
-  <img src="https://github.com/tancredi/fantasticon/workflows/Release/badge.svg" alt="Release status">
-</p>
 
 ### Intro
 
