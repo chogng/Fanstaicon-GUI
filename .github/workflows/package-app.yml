@@ -74,6 +74,6 @@ jobs:
           name: ${{ inputs.tag || github.ref_name }}
           fail_on_unmatched_files: true
           files: |
-            dist/**/release/*.dmg
-            dist/**/release/*.exe
-            dist/**/release/*.zip
+            dist/**/*.dmg
+            dist/**/*.exe
+            dist/**/*.zip
