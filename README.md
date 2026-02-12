@@ -13,6 +13,10 @@
   <img src="https://github.com/tancredi/fantasticon/workflows/Release/badge.svg" alt="Release status">
 </p>
 
+## Attribution
+
+This repository contains modifications and additional code based on `tancredi/fantasticon` (MIT License): https://github.com/tancredi/fantasticon
+
 ### Intro
 
 Icon-font generation, easy to use and highly configurable.
@@ -32,6 +36,48 @@ npm install -g fantasticon
 ```bash
 fantasticon my-icons -o icon-dist
 ```
+
+## GUI (prototype)
+
+This repo includes a minimal Electron-based GUI wrapper around the CLI, mainly for quick local usage.
+
+```bash
+npm install
+npm run gui
+```
+
+### How To Use (GUI)
+
+1. Select `Input Directory` (folder containing `.svg` files).
+2. Select `Output Directory` (where generated files will be written).
+3. (Optional) Select `Config File` (`.fantasticonrc.*`) to reuse advanced options (templates, formatOptions, getIconId, etc).
+4. Choose `Font Types` / `Asset Types`.
+5. Click `Generate` and check the `Output` panel for results/errors.
+
+### Packaging (macOS / Windows)
+
+Build artifacts go into `release/`.
+
+```bash
+# macOS (run on macOS)
+npm run dist:mac
+
+# macOS portable (zip only)
+npm run dist:mac:portable
+
+# Windows (run on Windows)
+npm run dist:win
+
+# Windows portable (single .exe)
+npm run dist:win:portable
+```
+
+### CI Packaging (GitHub Actions)
+
+This repo includes a GitHub Actions workflow that builds installers for macOS and Windows and attaches them to a GitHub Release.
+
+- Trigger: push a tag like `v0.1.0` (or run the workflow manually).
+- Output: artifacts are uploaded to the GitHub Release for that tag.
 
 ### Command-line
 

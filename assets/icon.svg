@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect x="0" y="0" width="1024" height="1024" rx="140" fill="#000000" />
+
+  <!-- Layout: 3x3 grid of shapes, matching the provided icon -->
+  <!-- Cell centers: (312,312) (512,312) (712,312) / (312,512) (512,512) (712,512) / (312,712) (512,712) (712,712) -->
+
+  <!-- Row 1 -->
+  <rect x="230" y="230" width="164" height="164" rx="18" fill="#ff2f7a" />
+  <circle cx="512" cy="312" r="82" fill="#17f7d4" />
+  <polygon points="712,230 794,394 630,394" fill="#ff2f7a" />
+
+  <!-- Row 2 -->
+  <circle cx="312" cy="512" r="82" fill="#ffffff" />
+  <polygon points="512,430 594,594 430,594" fill="#ffffff" />
+  <rect x="630" y="430" width="164" height="164" rx="18" fill="#17f7d4" />
+
+  <!-- Row 3 -->
+  <polygon points="312,630 394,794 230,794" fill="#17f7d4" />
+  <circle cx="512" cy="712" r="82" fill="#ff2f7a" />
+  <rect x="630" y="630" width="164" height="164" rx="18" fill="#ffffff" />
+</svg>
+

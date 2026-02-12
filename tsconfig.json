@@ -11,9 +11,10 @@
     "rootDir": "src",
     "sourceMap": true,
     "target": "ES2020",
-    "types": ["node"]
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"]
   },
-  "typeRoots": ["node_modules/@types"],
+  "include": ["src/**/*.ts"],
   "exclude": [
     "node_modules",
     "dist",

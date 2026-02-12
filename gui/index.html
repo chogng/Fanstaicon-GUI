@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fanstanicon</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="card configCard">
+        <div class="row">
+          <div class="label">Input Directory</div>
+          <div class="value" id="inputDir">(Not Selected)</div>
+          <button id="pickInput">Broswer</button>
+        </div>
+
+        <div class="row">
+          <div class="label">Output Directory</div>
+          <div class="value" id="outputDir">(Not Selected)</div>
+          <button id="pickOutput">Broswer</button>
+        </div>
+
+        <div class="row">
+          <div class="label">Config File (Optional)</div>
+          <div class="value" id="configPath">(None)</div>
+          <button id="pickConfig">Broswer</button>
+        </div>
+
+        <div class="grid">
+          <label class="field">
+            <div class="label">Name</div>
+            <input id="name" type="text" value="icons" />
+          </label>
+          <label class="field">
+            <div class="label">Prefix</div>
+            <input id="prefix" type="text" value="icon" />
+          </label>
+          <label class="field">
+            <div class="label">Tag</div>
+            <input id="tag" type="text" value="i" />
+          </label>
+          <label class="field">
+            <div class="label">Fonts Url (Optional)</div>
+            <input id="fontsUrl" type="text" placeholder="/static/fonts" />
+          </label>
+        </div>
+      </section>
+
+      <section class="card outputCard">
+        <div class="divider" aria-hidden="true"></div>
+        <div class="twoCols">
+          <div>
+            <div class="sectionTitle">Font Types</div>
+            <div class="checks" id="fontTypes"></div>
+          </div>
+          <div>
+            <div class="sectionTitle">Asset Types</div>
+            <div class="checks" id="assetTypes"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="run">Generate</button>
+        </div>
+
+        <div class="logBox logTitle">
+          <div class="logBar">
+            <div class="sectionTitle">Output</div>
+            <div class="logStatus" id="status">Ready</div>
+          </div>
+          <pre class="log" id="log"></pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
