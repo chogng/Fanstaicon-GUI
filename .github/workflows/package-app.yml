@@ -2,6 +2,11 @@ name: Package App
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to package (e.g. v0.1.0). Leave empty to package the selected ref.'
+        required: false
+        type: string
   push:
     tags:
       - 'v*'
@@ -29,8 +34,7 @@ jobs:
       - run: npm ci
 
       - name: Build App
-        run: |
-          npm run dist:${{ matrix.os == 'macos-latest' && 'mac' || 'win' }}
+        run: npm run dist:${{ matrix.os == 'macos-latest' && 'mac' || 'win' }}
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -44,7 +48,7 @@ jobs:
 
   release:
     name: GitHub Release
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.tag != '')
     needs: package
     runs-on: ubuntu-latest
     permissions:
@@ -58,6 +62,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ inputs.tag || github.ref_name }}
+          name: ${{ inputs.tag || github.ref_name }}
           files: |
             dist/**/release/*.dmg
             dist/**/release/*mac.zip
