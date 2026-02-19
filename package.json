@@ -135,7 +135,7 @@
     "@types/ttf2eot": "^2.0.2",
     "@types/ttf2woff": "^2.0.4",
     "@types/ttf2woff2": "^6.0.0",
-    "electron": "40.4.0",
+    "electron": "40.6.0",
     "electron-builder": "^26.0.12",
     "png2icons": "^2.0.1",
     "prettier": "^3.7.4",
