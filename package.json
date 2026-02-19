@@ -136,7 +136,7 @@
     "@types/ttf2woff": "^2.0.4",
     "@types/ttf2woff2": "^6.0.0",
     "electron": "40.4.0",
-    "electron-builder": "^26.0.12",
+    "electron-builder": "^26.8.1",
     "png2icons": "^2.0.1",
     "prettier": "^3.7.4",
     "rimraf": "^6.1.2",
